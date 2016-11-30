@@ -14,15 +14,15 @@ public class PaymentResource extends JerseyClient {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response transferIn(
-            @QueryParam("Kontonummer") Integer Kontonummmer,
-            @QueryParam("Betrag") Float Betrag
+            @QueryParam("kontonummer") Integer kontonummmer,
+            @QueryParam("betrag") Float betrag
 
         ) {
 
         //send request to register micro service
         //
 
-        PaymentService paymentService = new PaymentService(Kontonummmer, Betrag);
+        PaymentService paymentService = new PaymentService(kontonummmer, betrag);
         return Response.ok(paymentService).build();
     }
 
@@ -30,14 +30,14 @@ public class PaymentResource extends JerseyClient {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response transferOut(
-            @QueryParam("Kontonummer") Integer Kontonummmer,
-            @QueryParam("Betrag") Float Betrag
+            @QueryParam("kontonummer") Integer kontonummmer,
+            @QueryParam("betrag") Float betrag
     ) {
 
         //send request to register micro service
         //
 
-        PaymentService paymentService = new PaymentService(Kontonummmer, Betrag);
+        PaymentService paymentService = new PaymentService(kontonummmer, betrag);
         return Response.ok(paymentService).build();
     }
 }

@@ -6,30 +6,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentService
 {
     @JsonProperty
-    private Integer Kontonummer;
+    private Integer kontonummer;
 
     @JsonProperty
-    private Float Betrag;
+    private Float betrag;
 
-    public PaymentService(Integer Kontonummer, Float Betrag)
+    public PaymentService(Integer kontonummer, Float betrag)
     {
-        this.Kontonummer = Kontonummer;
-        this.Betrag = Betrag;
+        this.kontonummer = kontonummer;
+        this.betrag = betrag;
     }
 
     public Integer getKontonummer() {
-        return Kontonummer;
+        return kontonummer;
     }
 
     public void setKontonummer(Integer kontonummer) {
-        Kontonummer = kontonummer;
+        this.kontonummer = kontonummer;
     }
 
     public Float getBetrag() {
-        return Betrag;
+        return betrag;
     }
 
     public void setBetrag(Float betrag) {
-        Betrag = betrag;
+        this.betrag = betrag;
     }
 }
