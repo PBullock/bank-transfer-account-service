@@ -1,0 +1,58 @@
+FORMAT: 1A
+HOST: http://localhost:18185/api
+
+# bank-transfer-account-microservice
+
+Ermöglicht die Nutzer- und Mitarbeiterkontos steuern
+
+## Account [/account]
+
+### Create [POST]
+
+### Get Account [GET]
+
+### Delete [DELETE]
+
+### Edit Account [PUT]
+
+# Internal Transfer
+
+## Transfer In [/transfer/in?Kontonummer={Kontonummer}&Betrag={Betrag}]
+
++ Parameters
+
+    + Kontonummer (integer) - Kontonummer von kunde 
+    + Betrag (float) - Menge Überwiesen
+
+### Internal Payment [POST]
+
++ Response 200 (application/json)
+
+        {
+            "success":true
+        }
+        
+
++ Response 402 (application/json)
+
+    
+        {
+            "success":  false,
+            "message" : "no account"
+        }
+    
+
+## Transfer OUT [/transfer/out?Kontonummer={Kontonummer}&Betrag={Betrag}]
+
++ Parameters
+
+    + Kontonummer (integer) - Kontonummer von kunde 
+    + Betrag (float) - Menge Überwiesen
+
+### Internal Payment [POST]
+
++ Response 200 (application/json)
+
+        {
+            "success":true
+        }
