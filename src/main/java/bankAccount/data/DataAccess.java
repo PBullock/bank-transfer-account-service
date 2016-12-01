@@ -10,11 +10,12 @@ import java.util.Properties;
 public abstract class DataAccess {
 
     private Properties config;
+
     protected Connection conn;
 
     public DataAccess() {
 
-        File file = new File("src/main/bankRegister/db_conf.txt");
+        File file = new File("src/main/java/bankAccount/db_conf.txt");
         InputStream is = null;
         try {
             is = new BufferedInputStream(new FileInputStream(file));
