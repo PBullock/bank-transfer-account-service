@@ -19,8 +19,7 @@ public class PaymentResource extends JerseyClient {
 
         ) {
 
-        //send request to register micro service
-        //
+
 
         PaymentService paymentService = new PaymentService(kontonummmer, betrag);
         return Response.ok(paymentService).build();
@@ -34,10 +33,12 @@ public class PaymentResource extends JerseyClient {
             @QueryParam("betrag") Float betrag
     ) {
 
-        //send request to register micro service
-        //
+
+
+
 
         PaymentService paymentService = new PaymentService(kontonummmer, betrag);
+
         return Response.ok(paymentService).build();
     }
 }

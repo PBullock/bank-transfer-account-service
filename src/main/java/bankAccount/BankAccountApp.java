@@ -1,5 +1,6 @@
 package bankAccount;
 
+import bankAccount.resources.AccountResource;
 import bankAccount.resources.PaymentResource;
 import io.dropwizard.Application;
 import io.dropwizard.client.JerseyClientBuilder;
@@ -23,6 +24,7 @@ public class BankAccountApp extends Application<BankAccountConf>
     {
         final Client client = setupClient(environment);
         environment.jersey().register(new PaymentResource());
+        environment.jersey().register(new AccountResource());
 
     }
 
