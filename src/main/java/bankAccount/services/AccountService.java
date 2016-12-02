@@ -1,17 +1,22 @@
 package bankAccount.services;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by Peter on 01/12/2016.
  */
+
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, setterVisibility = JsonAutoDetect.Visibility.NONE)
 public class AccountService {
         @JsonProperty private Integer Kunden_ID;
         @JsonProperty private Integer Kontonummer;
         @JsonProperty private Float Guthaben;
         @JsonProperty private Float Dispo;
 
-        public AccountService(Integer Kunden_ID){
+        public AccountService () {}
+
+        public AccountService(Integer Kunden_ID) {
             this.Kunden_ID = Kunden_ID;
         }
         public AccountService(Integer Kunden_ID, Integer Kontonummer){

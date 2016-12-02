@@ -22,9 +22,8 @@ public class AccountResource extends JerseyClient {
 
         //data access create account call
         BankAccountDataAccess dao = new BankAccountDataAccess();
-        dao.createAccount(Kunden_ID, Dispo, Guthaben, Hauptkonto);
+        AccountService accountService = dao.createAccount(Kunden_ID, Dispo, Guthaben, Hauptkonto);
 
-        AccountService accountService = new AccountService(Kunden_ID);
         return Response.ok(accountService).build();
     }
 

@@ -29,8 +29,8 @@ public class BankAccountDataAccess extends DataAccess {
         try {
             Connection conn = this.getConnection();
 
-            String sql = "INSERT into konto (Kunden_ID, Dispo, Guthaben, Kontonummer, Hauptkonto) VALUES ( ?, ?, ?, ?, ?);" +
-                    "SELECT * FROM konto WHERE (SELECT max(created) FROM konto) = created";
+            String sql = "INSERT into konto (Kunden_ID, Dispo, Guthaben, Kontonummer, Hauptkonto) VALUES ( ?, ?, ?, ?, ?);";
+
 
             Random rand = new Random();
             Integer Kontonummer = rand.nextInt(9999999);
@@ -43,7 +43,11 @@ public class BankAccountDataAccess extends DataAccess {
             stmt.setInt(4, Kontonummer);
             stmt.setInt(5, Hauptkonto);
             stmt.execute();
-            ResultSet r = stmt.getResultSet();
+
+            String kontoSql = " SELECT * FROM konto WHERE (SELECT max(created) FROM konto) = created";
+            Statement lastKonto = conn.createStatement();
+            lastKonto.execute(kontoSql);
+            ResultSet r = lastKonto.getResultSet();
 
             while(r.next()){
                  account = new AccountService(
